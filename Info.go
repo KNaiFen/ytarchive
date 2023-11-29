@@ -351,8 +351,10 @@ func (fi FormatInfo) SetInfo(player_response *PlayerResponse) {
 	// if len(startDate) > 0 {
 	// 	startDate = startDate[:8]
 	// }
-	if len(startDate) >= 0 {
+	if len(startDate) >= 17 {
 		startDate = startDate[:8] + "-" + startDate[9:11] + startDate[12:14] + startDate[15:17]
+	} else {
+		startDate = startDate[:8]
 	}
 
 	fi["id"] = vid

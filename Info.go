@@ -348,15 +348,19 @@ func (fi FormatInfo) SetInfo(player_response *PlayerResponse) {
 	publishDate := strings.ReplaceAll(pmfr.PublishDate, "-", "")
 	url := fmt.Sprintf("https://www.youtube.com/watch?v=%s", vid)
 
-	if len(startDate) > 0 {
-		startDate = startDate[:8]
+	// if len(startDate) > 0 {
+	// 	startDate = startDate[:8]
+	// }
+	if len(startDate) >= 0 {
+		startDate = startDate[:8] + "-" + startDate[9:11] + startDate[12:14] + startDate[15:17]
 	}
 
 	fi["id"] = vid
 	fi["url"] = url
 	fi["title"] = strings.TrimSpace(player_response.VideoDetails.Title)
 	fi["channel_id"] = player_response.VideoDetails.ChannelID
-	fi["channel"] = player_response.VideoDetails.Author
+	// fi["channel"] = player_response.VideoDetails.Author
+	fi["channel"] = ChannelsFormat
 	fi["upload_date"] = startDate
 	fi["start_date"] = startDate
 	fi["publish_date"] = publishDate

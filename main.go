@@ -23,6 +23,8 @@ const (
 	ActionDoNot
 )
 
+var ChannelsFormat = ""
+
 const (
 	MajorVersion = 0
 	MinorVersion = 4
@@ -443,6 +445,7 @@ func init() {
 	cliFlags.StringVar(&cookieFile, "cookies", "", "Cookies to be used when downloading.")
 	cliFlags.StringVar(&fnameFormat, "o", DefaultFilenameFormat, "Filename output format.")
 	cliFlags.StringVar(&fnameFormat, "output", DefaultFilenameFormat, "Filename output format.")
+	cliFlags.StringVar(&ChannelsFormat, "channel-name", "", "Channels output format.")
 	cliFlags.StringVar(&ffmpegPath, "ffmpeg-path", "ffmpeg", "Specify a custom ffmpeg program location, including program name.")
 	cliFlags.IntVar(&retrySecs, "r", 0, "Seconds to wait between checking stream status.")
 	cliFlags.IntVar(&retrySecs, "retry-stream", 0, "Seconds to wait between checking stream status.")
